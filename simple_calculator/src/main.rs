@@ -1,71 +1,61 @@
 use std::io;
 
-// Dodawanie
-fn addition() {
+// Pobierz liczbę f64 od użytkownika i ja zwroc
+fn get_the_number() -> f64 {
     let mut x = String::new();
-    println!("Enter first number: ");
     io::stdin().read_line( &mut x ).ok();
     let x: f64 = x.trim().parse().unwrap();
+    x
+}
 
-    let mut y = String::new();
+// Dodawanie
+fn addition() {
+    println!("Enter first number: ");
+    let x = get_the_number();
+
     println!("Enter second number: ");
-    io::stdin().read_line( &mut y ).ok();
-    let y: f64 = y.trim().parse().unwrap();
+    let y = get_the_number();
 
     println!("{} + {} = {:.3}", x, y, (x+y));           // wynik zaokraglam do 3 miejsc po przecinku
 }
 
 // Odejmowanie
 fn subtraction() {
-    let mut x = String::new();
     println!("Enter first number: ");
-    io::stdin().read_line( &mut x ).ok();
-    let x: f64 = x.trim().parse().unwrap();
+    let x = get_the_number();
 
-    let mut y = String::new();
     println!("Enter second number: ");
-    io::stdin().read_line( &mut y ).ok();
-    let y: f64 = y.trim().parse().unwrap();
+    let y = get_the_number();
 
     println!("{} - {} = {:.3}", x, y, (x-y));           // wynik zaokraglam do 3 miejsc po przecinku
 }
 
 // Mnozenie
 fn multiplication() {
-    let mut x = String::new();
     println!("Enter first number: ");
-    io::stdin().read_line( &mut x ).ok();
-    let x: f64 = x.trim().parse().unwrap();
+    let x = get_the_number();
 
-    let mut y = String::new();
     println!("Enter second number: ");
-    io::stdin().read_line( &mut y ).ok();
-    let y: f64 = y.trim().parse().unwrap();
+    let y = get_the_number();
 
     println!("{} * {} = {:.3}", x, y, (x*y));           // wynik zaokraglam do 3 miejsc po przecinku
 }
 
 // Dzielenie
 fn division() {
-    let mut x = String::new();
     println!("Enter first number: ");
-    io::stdin().read_line( &mut x ).ok();
-    let x: f64 = x.trim().parse().unwrap();
+    let x = get_the_number();
 
-    let mut y = String::new();
     println!("Enter second number: ");
-    io::stdin().read_line( &mut y ).ok();
-    let y: f64 = y.trim().parse().unwrap();
+    let y = get_the_number();
 
     println!("{} / {} = {:.3}", x, y, (x/y));           // wynik zaokraglam do 3 miejsc po przecinku
 }
 
 // Potegowanie
 fn compounding() {
-    let mut x = String::new();
     println!("Enter power base: ");
-    io::stdin().read_line( &mut x ).ok();
-    let x: f64 = x.trim().parse().unwrap();
+    let x = get_the_number();
 
     let mut a = String::new();
     println!("Enter power exponent: ");
@@ -81,15 +71,11 @@ fn compounding() {
 
 // Logarytm
 fn logarithm() {
-    let mut a = String::new();
     println!("Enter base of the logarithm: ");
-    io::stdin().read_line( &mut a ).ok();
-    let a: f64 = a.trim().parse().unwrap();
+    let a = get_the_number();
 
-    let mut x = String::new();
     println!("Enter logarithmic number : ");
-    io::stdin().read_line( &mut x ).ok();
-    let x: f64 = x.trim().parse().unwrap();
+    let x = get_the_number();
 
     println!("log{}({}) = {:.3}", a, x, x.log(a));
 }
